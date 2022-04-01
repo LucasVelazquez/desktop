@@ -82,6 +82,15 @@ p {
 
 .enter-text {
   margin-top: 10px;
+  display: flex;
+}
+
+.enter-text input {
+  all: unset;
+  flex-grow: 1;
+  font-family: inherit;
+  font-size: inherit;
+  caret-color: inherit;
 }
 
 .shortcut {
@@ -130,15 +139,24 @@ p {
 }
 
 #icons-section {
-  border: solid 2px blue;
   width: 15%;
 }
 
 #programs-section {
-  border: solid 2px red;
   position: relative;
   width: 85%;
 }
+
+/*Testing*/
+/*
+#icons-section {
+  border: solid 2px blue;
+}
+
+#programs-section {
+  border: solid 2px red;
+}
+*/
 
 @media only screen and (max-width: 800px) {
   #icons-section {
@@ -158,8 +176,8 @@ p {
 
   .window {
     min-width: 95%;
-    height: 50%;
-    top: 10px;
-    left: 0;
+    height: 60%;
+    top: 18px;
+    left: 3px;
   }
 }
