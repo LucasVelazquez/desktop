@@ -10,17 +10,17 @@
   <body>
     <div id="container">
       <section id="icons-section" class="column-section">
-        <div class="shortcut">
+        <div id="cv-shortcut" class="shortcut">
           <img src="./src/images/pdf-shortcut.png" alt="" />
           <p>CV - Lucas Sebastian Velazquez.pdf</p>
         </div>
-        <div class="shortcut">
+        <div id="cmd-shortcut" class="shortcut">
           <img src="./src/images/cmd-shortcut.png" alt="" />
           <p>Command Prompt</p>
         </div>
       </section>
       <section id="programs-section" class="column-section">
-        <div class="window">
+        <div id="cmd-program" class="window">
           <div class="window-header">
             <p>
               <img src="./src/images/cmd-icon.PNG" alt="cmd-icon" />
@@ -28,17 +28,17 @@
             </p>
             <div class="close-window-button">&#215;</div>
           </div>
-          <div class="window-screen">
+          <div id="cmd-screen" class="window-screen">
             <p>Microsoft Windows [Version 10.0.19042.1586]</p>
             <p>(c) Microsoft Corporation. All rights reserved.</p>
-            <div class="enter-text">
+            <div id="enter-text">
               <span>C:\Users\Lucas_Velazquez></span>
-              <input type="text" spellcheck="false" />
+              <input id="enter-command-input" type="text" spellcheck="false" />
             </div>
           </div>
         </div>
       </section>
     </div>
-    <script src="./src/scripts/app.js"></script>
+    <script type="module" src="./src/scripts/app.js"></script>
   </body>
 </html>
