@@ -7,6 +7,8 @@ function init() {
 
 function addEvents() {
   for (let i = 0; i < windowElements.length; i++) {
+    windowElements[i].style.zIndex = 5;
+    windowElements[i].addEventListener("click", putWindowToTop);
     makeWindowDraggable(windowElements[i], windowElements[i].firstElementChild);
     addCloseWindowEvent(windowElements[i].firstElementChild.lastElementChild);
   }
@@ -64,14 +66,50 @@ function makeWindowDraggable(element, header) {
 
 function addCloseWindowEvent(closeButton) {
   closeButton.addEventListener("click", (e) => {
-    e.currentTarget.parentElement.parentElement.style.display = "none";
+    e.stopPropagation();
+    let element = e.currentTarget.parentElement.parentElement;
+    element.style.zIndex = 5;
+    element.style.display = "none";
   });
 }
 
 function openWindow(programId) {
-  let program = document.getElementById(programId);
-  if (program.style.display == "block") return;
-  document.getElementById(programId).style.display = "block";
+  let windowToOpen = document.getElementById(programId);
+  if (windowToOpen.style.display == "block") return;
+
+  let windowsOpenedZIndexValues = [];
+  for (let i = 0; i < windowElements.length; i++) {
+    if (windowElements[i].style.display == "block") {
+      windowsOpenedZIndexValues.push(parseInt(windowElements[i].style.zIndex));
+    }
+  }
+
+  if (windowsOpenedZIndexValues.length > 0) {
+    windowToOpen.style.zIndex = Math.max(...windowsOpenedZIndexValues) + 1;
+  }
+
+  windowToOpen.style.display = "block";
+}
+
+function putWindowToTop(e) {
+  let windowSelected = e.currentTarget;
+  let windowsOpened = [];
+  for (let i = 0; i < windowElements.length; i++) {
+    if (windowElements[i].style.display == "block") {
+      windowsOpened.push({ index: i, zIndex: parseInt(windowElements[i].style.zIndex) });
+    }
+  }
+
+  if (windowsOpened.length == 1) return;
+  let topWindow = windowsOpened.sort((a, b) => {
+    return b.zIndex - a.zIndex;
+  })[0];
+
+  if (parseInt(windowSelected.style.zIndex) === topWindow.zIndex) return;
+
+  let windowSelectedZindex = windowSelected.style.zIndex;
+  windowSelected.style.zIndex = windowElements[topWindow.index].style.zIndex;
+  windowElements[topWindow.index].style.zIndex = windowSelectedZindex;
 }
 
 export default { init, openWindow };
