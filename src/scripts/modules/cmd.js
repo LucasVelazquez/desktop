@@ -1,6 +1,12 @@
 let cmdScreen;
 let enterCommandInput;
 
+const predefinedMessages = [
+  "Microsoft Windows [Version 10.0.448502.6584]",
+  "(c) Microsoft Corporation. Reservados todos los derechos.",
+  '"Escriba help para ver un listado de los comandos disponibles"',
+];
+
 function init() {
   cmdScreen = document.getElementById("cmd-screen");
   enterCommandInput = document.getElementById("enter-command-input");
@@ -62,4 +68,23 @@ function clearCommandInput() {
   enterCommandInput.value = "";
 }
 
-export default { init };
+function setInitialMessage() {
+  clearScreen();
+  let enterTextContainer = document.getElementById("enter-text");
+
+  const messagesLength = predefinedMessages.length - 1;
+  for (let i = 0; i < messagesLength - 1; i++) {
+    cmdScreen.insertBefore(createParagraph(predefinedMessages[i]), enterTextContainer);
+  }
+
+  cmdScreen.insertBefore(document.createElement("br"), enterTextContainer);
+  cmdScreen.insertBefore(createParagraph(predefinedMessages[messagesLength]), enterTextContainer);
+}
+
+function createParagraph(text) {
+  let paragraph = document.createElement("p");
+  paragraph.appendChild(document.createTextNode(text));
+  return paragraph;
+}
+
+export default { init, setInitialMessage };

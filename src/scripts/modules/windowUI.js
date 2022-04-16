@@ -1,3 +1,5 @@
+import mysteriousChat from "./mysteriousChat.js";
+
 let windowElements = [];
 
 function init() {
@@ -10,7 +12,11 @@ function addEvents() {
     windowElements[i].style.zIndex = 5;
     windowElements[i].addEventListener("click", putWindowToTop);
     makeWindowDraggable(windowElements[i], windowElements[i].firstElementChild);
-    addCloseWindowEvent(windowElements[i].firstElementChild.lastElementChild);
+    
+    let closeButton = windowElements[i].firstElementChild.getElementsByClassName("close-window-button")[0];
+    if (closeButton) {
+      addCloseWindowEvent(windowElements[i].firstElementChild.lastElementChild);
+    }
   }
 }
 
@@ -76,6 +82,8 @@ function addCloseWindowEvent(closeButton) {
 function openWindow(programId) {
   let windowToOpen = document.getElementById(programId);
   if (windowToOpen.style.display == "block") return;
+
+  mysteriousChat.startChat();
 
   let windowsOpenedZIndexValues = [];
   for (let i = 0; i < windowElements.length; i++) {

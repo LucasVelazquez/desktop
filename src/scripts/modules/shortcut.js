@@ -2,12 +2,14 @@ import windowUI from "./windowUI.js";
 
 let cvShortcut;
 let cmdShortcut;
-let projectFolder;
+let projectFolderShortcut;
+let pushButtonShortcut;
 
 function init() {
   cvShortcut = document.getElementById("cv-shortcut");
   cmdShortcut = document.getElementById("cmd-shortcut");
-  projectFolder = document.getElementById("projects-shortcut");
+  projectFolderShortcut = document.getElementById("projects-shortcut");
+  pushButtonShortcut = document.getElementById("push-button-shortcut");
   addEvents();
 }
 
@@ -20,8 +22,12 @@ function addEvents() {
     windowUI.openWindow("cmd-program");
   });
 
-  projectFolder.addEventListener("dblclick", () => {
+  projectFolderShortcut.addEventListener("dblclick", () => {
     windowUI.openWindow("project-folder");
+  });
+
+  pushButtonShortcut.addEventListener("dblclick", () => {
+    windowUI.openWindow("button-program");
   });
 }
 

@@ -8,14 +8,6 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-html {
-  background: url("../images/windows-background.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
 p {
   margin: 0;
 }
@@ -330,7 +322,8 @@ p {
 }
 
 #cmd-program,
-#project-folder {
+#project-folder,
+#button-program {
   display: none;
 }
 
@@ -344,6 +337,29 @@ p {
 
 .folder-window > .window-screen {
   background-color: #ffffff;
+}
+
+#button-program > .window-screen {
+  background-color: #52e9c3;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+#button-screen > div {
+  margin-top: 55px;
+  text-align: center;
+}
+
+#button-screen p {
+  font-size: xx-large;
+  margin-bottom: 15px;
+}
+
+#button-program-button {
+  width: 75px;
+  height: 75px;
+  border-radius: 40px;
+  background-color: red;
+  box-shadow: 0px 0px 5px black;
 }
 
 #project-folder {
@@ -374,6 +390,34 @@ p {
   height: 3px;
   transform: rotate(-45deg);
   margin: 0 6px;
+}
+
+#chat-program {
+  width: 300px;
+  min-width: 300px;
+  max-height: 380px;
+  top: unset;
+  bottom: 10%;
+  left: 5%;
+  display: none;
+}
+
+#chat-program > .window-screen {
+  background-color: #ffffff;
+  overflow-y: auto;
+}
+
+#chat-program .message {
+  background-color: #38abfb;
+  color: #ffffff;
+  padding: 5px 5px;
+  margin-right: 10px;
+  margin-top: 5px;
+  float: right;
+  width: max-content;
+  max-width: 80%;
+  border-radius: 3px;
+  font-size: small;
 }
 
 @media only screen and (max-width: 800px) {
