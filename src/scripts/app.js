@@ -9,16 +9,8 @@ function load() {
   console.log("%cHola, ¿Que estás haciendo aquí?", "font-size: 20px");
   console.log("%cEspero que no estes tratando de hacer trampa.", "font-size: 20px");
   console.log("%cNo arruines la diversión... cierra la consola.", "font-size: 20px");
-  //welcomeScreen.init();
   
-  /*Solo para desarrollo*/
-  document.getElementById("welcome-screen").style.display = "none";
-  document.querySelector("html").style.background =
-    "url('src/images/windows-background.jpg') no-repeat center center fixed";
-  document.querySelector("html").style.backgroundSize = "cover";
-  document.getElementById("container").style.display = "block";
-  /**/
-
+  welcomeScreen.init();
   windowUI.init();
   cmd.init();
   shortcut.init();
