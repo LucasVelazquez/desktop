@@ -56,11 +56,12 @@ function enterCommand(e) {
     return;
   }
 
+  let command = enterCommandInput.value.toLowerCase();
   if (passwordMode.active) {
-    managePassword(enterCommandInput.value);
+    managePassword(command);
   } else {
-    lastCommandInserted = enterCommandInput.value;
-    callFunction(enterCommandInput.value);
+    lastCommandInserted = command;
+    callFunction(command);
   }
   clearCommandInput();
 }
