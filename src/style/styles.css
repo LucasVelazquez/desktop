@@ -186,7 +186,12 @@ p {
   z-index: 3;
 }
 
+#welcome-screen > div {
+  margin-bottom: 20vh;
+}
+
 #welcome-screen .user-icon {
+  margin: 0 auto;
   background-color: rgb(255, 255, 255, 0.2);
   border-radius: 50%;
   width: 200px;
@@ -403,6 +408,7 @@ p {
 }
 
 #chat-program > .window-screen {
+  padding: 13px 0;
   background-color: #ffffff;
   overflow-y: auto;
 }
@@ -412,12 +418,21 @@ p {
   color: #ffffff;
   padding: 5px 5px;
   margin-right: 10px;
-  margin-top: 5px;
+  margin-top: 8px;
   float: right;
   width: max-content;
   max-width: 80%;
   border-radius: 3px;
   font-size: small;
+}
+
+.command-list td {
+  width: 150px;
+  font-style: italic;
+}
+
+#password-label {
+  display: none;
 }
 
 @media only screen and (max-width: 800px) {

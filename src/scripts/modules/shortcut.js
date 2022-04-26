@@ -1,4 +1,5 @@
 import windowUI from "./windowUI.js";
+import cmd from "./cmd.js";
 
 let cvShortcut;
 let cmdShortcut;
@@ -19,7 +20,9 @@ function addEvents() {
   });
 
   cmdShortcut.addEventListener("dblclick", () => {
-    windowUI.openWindow("cmd-program");
+    if (windowUI.openWindow("cmd-program")) {
+      cmd.setInitialMessage();
+    }
   });
 
   projectFolderShortcut.addEventListener("dblclick", () => {

@@ -81,7 +81,7 @@ function addCloseWindowEvent(closeButton) {
 
 function openWindow(programId) {
   let windowToOpen = document.getElementById(programId);
-  if (windowToOpen.style.display == "block") return;
+  if (windowToOpen.style.display == "block") return false;
 
   mysteriousChat.startChat();
 
@@ -97,6 +97,7 @@ function openWindow(programId) {
   }
 
   windowToOpen.style.display = "block";
+  return true;
 }
 
 function putWindowToTop(e) {
