@@ -18,4 +18,4 @@ function load() {
   mysteriousChat.init();
 }
 
-window.addEventListener("load", load);
+document.addEventListener("DOMContentLoaded", load);

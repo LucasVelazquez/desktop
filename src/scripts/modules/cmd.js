@@ -14,8 +14,8 @@ const predefinedMessages = [
 const notes = `Esta empresa es muy rara.
  Tienen muchos protocolos de seguridad y hay zonas en las que no puedo entrar...aun no se cual es mi trabajo realmente.
  A todo esto, no puedo recordar la contraseña para abrir la puerta principal. Recuerdo algo asi como que la contraseña era una palabra
- que estaba en una página dentro de la carpeta "Programs and Stuffs" y que estaba relacionada con cafecitos y criptomonedas.
- Debería echar un vistazo a esa página para ver si hay alguna palabra que resalte o algo asi.
+ que estaba en un juego de vaqueros dentro de la carpeta "Programs and Stuffs".
+ Debería echar un vistazo para ver si hay alguna palabra que resalte o algo asi.
  No entiendo por qué ocultan las contraseñas pero si no la encuentro pronto me meteré en problemas`;
 
 let commandsEnabled = [
@@ -113,7 +113,7 @@ function callFunction(command) {
 function managePassword(password) {
   switch (passwordMode.command) {
     case "unlock-door":
-      if (password.toLowerCase() !== "stablecoins") {
+      if (password.toLowerCase() !== "saloon") {
         addLine("Ingrese contraseña:", createParagraph("Contraseña incorrecta"));
       } else {
         addLine("Ingrese contraseña:", createParagraph("Puerta pincipal abierta.", "#20C20E"));
